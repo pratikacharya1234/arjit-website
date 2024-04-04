@@ -65,33 +65,39 @@
         
         .flex-container {
           display: flex;
-          flex-direction: row;
-          font-size: 30px;
-          text-align: center;
+          flex-wrap: wrap; /* Allow flex items to wrap to the next line if needed */
         }
         
         .flex-item-left {
           background-color: #25376a;
           padding-top: 100px;
           color: white;
-          flex: 50%;
+          flex: 1 1 50%; /* Take up half the width of the flex container */
+          max-width: 50%; /* Maximum width for larger screens */
           padding-top: 150px;
         }
-        
+      
         .flex-item-right {
-          /* padding: 10px; */
-          flex: 50%;
           background-color: #25376a;
           padding-top: 20px;
+          flex: 1 1 100%; /* Take up full width of the flex container */
+        }
+      
+        #comp {
+          padding-top: 10px;
+          height: 300px; /* Set height to auto to maintain aspect ratio */
+          width: 100%; /* Make the image fill the width of its container */
         }
         
-        /* Responsive layout - makes a one column-layout instead of two-column layout */
         @media (max-width: 800px) {
-          .flex-container {
-            flex-direction: column;
+          .flex-item-left,
+          .flex-item-right {
+            flex: 1 1 100%; /* Take up full width of the flex container on smaller screens */
+            max-width: 100%; /* Maximum width for smaller screens */
           }
         }
-        </style>
+      </style>
+      
       	<!-- Particles.js div -->
         <section id="home">
 	<div id="homepage">
@@ -123,7 +129,7 @@
 </div>
     </div>
       <div class="flex-item-right">
-       <img src="./img/undraw_programming_re_kg9v.svg" alt="computerboy" id="comp">
+       <img src="./img/undraw_programming_re_kg9v.svg" height="170px"  alt="computerboy" id="comp">
       </div>
     </div>
 
